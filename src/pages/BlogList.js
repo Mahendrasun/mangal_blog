@@ -1,13 +1,19 @@
+import React from 'react'
 import { Typography,Box,Container,Grid,Button,Card,CardMedia,CardActions,CardContent } from "@material-ui/core";
 import useStyle from './styles';
 import {Link} from 'react-router-dom';
-import BlogDetails from './blogDetails'
+import {useParams} from 'react-router-dom';
 
 
+// ProductDetails.js
 const cards = [1,2,3,4,5,6,7,8,9]
-function About() {
+const BlogList = () => {
 
-  const classes = useStyle();
+    const params = useParams();
+    console.log(params.id);
+    const {id} = params;
+    console.log(id);
+    const classes = useStyle();
   return (
   <>
   <Container maxWidth="lg">
@@ -16,25 +22,8 @@ function About() {
       <Typography variant="h1" align="center" color="textPrimary" gutterBottom> Mangal Prasad Pradhan</Typography>
     </div> */}
 
-<Container maxWidth='sm' >
-<Typography variant="h2" align="center" color="textPrimary" gutterBottom>
-    Mangal Prasad
-</Typography>
+    <Box sx={{height:'50px'}}></Box>
 
-<Typography variant="h5" align="center" color="textSecondary" paragraph>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-</Typography>
-<div className={classes.button} >
-    <Grid container spacing={2} justifyContent="center"   alignItems="center">
-<Grid item xs={6} >
-    <Button component={Link} to="/about" variant="contained" color="primary" >
-        know More.. 
-    </Button>
-</Grid>
-
-    </Grid>
-</div>
-            </Container>
         <Box sx={{ bgcolor: '#fff', height: 'auto' }} className={classes.box} >
 
 
@@ -73,7 +62,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
       </Container>
   
  
-  </>
-  );
-}
-export default About;
+  </>);
+   };
+   
+   export default BlogList;

@@ -7,6 +7,7 @@ import {
   makeStyles,
   useTheme,
   useMediaQuery,
+  Container
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "./Drawer";
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
     color: "white",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    marginLeft: theme.spacing(5),
     borderBottom: "1px solid transparent",
     "&:hover": {
       color: "yellow",
@@ -39,32 +40,36 @@ function Navbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" >
       <CssBaseline />
+      <Container maxWidth="lg">
       <Toolbar>
-        <Typography variant="h4" className={classes.logo}>
-          Navbar
+        <Typography variant="h6"   gutterBottom className={classes.logo}>
+          Mangal Prasad 
           
         </Typography>
         {isMobile ? (
           <DrawerComponent />
         ) : (
+          
           <div className={classes.navlinks}>
             <Link to="/" className={classes.link}>
-              Home
+              <Typography variant="h6">Home</Typography>
             </Link>
             <Link to="/about" className={classes.link}>
-              About
+            <Typography variant="h6">About</Typography>
             </Link>
             <Link to="/contact" className={classes.link}>
-              Contact
+            <Typography variant="h6">Contact</Typography>
             </Link>
-            <Link to="/faq" className={classes.link}>
-              FAQ
+            <Link to="/blogs" className={classes.link}>
+            <Typography variant="h6">Blog</Typography>
             </Link>
           </div>
+          
         )}
       </Toolbar>
+      </Container>
     </AppBar>
   );
 }
