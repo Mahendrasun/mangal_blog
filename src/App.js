@@ -8,6 +8,8 @@ import Blog from "./pages/blog";
 import Footer from "./component/Footer";
 import BlogDetails from "./pages/blogDetails";
 import BlogList from './pages/BlogList'
+import PageNotFound from "./pages/404";
+
 function App() {
   return (
     <Router>
@@ -18,6 +20,7 @@ function App() {
         <Route path="/contact" component={Contact} />
         <Route path="/blogs" component={BlogList} />
         <Route path={'/blog/:id'} component={BlogDetails}  />
+        <Route path="*" component={PageNotFound} />
         {/* path={"product/:id"} component={DetailsProduct} */}
         
       </Switch>
